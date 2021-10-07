@@ -1,0 +1,38 @@
+ul {
+    display: flex;
+    justify-content: space-between;
+    background-color: darkgray;
+    padding: 10px;
+    margin-right: 25%;
+    margin-left: 25%;
+    list-style-type: none;
+}
+
+.nav {
+    display: flex;
+    list-style-type: none;
+    margin-left: 2%;
+    padding-left: 4px;
+}
+
+.AddUser {
+    justify-content: end;
+}
+.value{
+    background-color: white;
+}
+.name{
+    padding-right: 200px;
+}
+label {
+    display: block;
+}
+input{
+    display: block;
+}
+select{
+    display: block;
+}
+.form{
+    text-align: -webkit-center;
+}

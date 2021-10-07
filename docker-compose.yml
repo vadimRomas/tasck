@@ -1,0 +1,44 @@
+version: "3.7"
+
+
+services:
+  app:
+    build:
+      context: .
+    environment:
+      - MYSQL_DATABASE=taskForJob
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
+    volumes:
+    - ./backend:/app
+
+    restart: on-failure
+    depends_on:
+      - db
+    command: >
+      python manage.py runserver 0.0.0.0:8000
+  db:
+    image: mysql:8.0
+    ports:
+    - "3309:3306"
+    environment:
+      - MYSQL_DATABASE=taskForJob
+      - MYSQL_USER=rot
+      - MYSQL_PASSWORD=root
+      - MYSQL_ROOT_PASSWORD=root
+    restart: on-failure
+    volumes:
+      - ./mysql:/var/lib/mysql
+
+  web:
+    image: nginx:alpine
+    ports:
+    - "80:80"
+    restart: on-failure
+    volumes:
+      - ./dist:/usr/share/nginx/html
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+
+
+
+
